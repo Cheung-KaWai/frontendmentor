@@ -5,23 +5,37 @@ type ButtonProps = {
   text?: string;
   number: number;
   theme?: any;
+  onClick?: any;
 };
 
-export const Button = ({ text, number }: ButtonProps) => {
-  return <DefaultButton number={number}>{text}</DefaultButton>;
+export const Button = ({ text, number, onClick }: ButtonProps) => {
+  return (
+    <DefaultButton
+      number={number}
+      onClick={onClick}
+    >
+      {text}
+    </DefaultButton>
+  );
 };
 
-export const ActiveButton = ({ text, number, theme }: ButtonProps) => {
+export const ActiveButton = ({ text, number, theme, onClick }: ButtonProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <DefaultButton number={number}>{text}</DefaultButton>
+      <DefaultButton
+        number={number}
+        onClick={onClick}
+      >
+        {text}
+      </DefaultButton>
     </ThemeProvider>
   );
 };
 
 const DefaultButton = styled.button<ButtonProps>`
   color: ${colors.white};
-  border: ${(props) => (props.theme.background === "transparent" ? "1px" : "0px")} solid rgba(255, 255, 255, 0.5);
+  border: 1px solid
+    ${(props) => (props.theme.background === "transparent" ? " rgba(255, 255, 255, 0.5)" : "transparent")};
   font-family: "League Spartan", sans-serif;
   height: 4.8rem;
   background-color: ${(props) => props.theme.background};
@@ -32,6 +46,7 @@ const DefaultButton = styled.button<ButtonProps>`
   line-height: 2.5rem;
   letter-spacing: 2.6px;
   cursor: pointer;
+  text-align: left;
 
   &::before {
     content: "0${(props) => props.number}";
