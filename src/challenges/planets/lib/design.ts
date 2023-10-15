@@ -3,12 +3,17 @@ export const colors = {
   navy: "#070724",
   darkGray: "#38384F",
   gray: "#838391",
-  babyBlue: "#419EBB",
-  yellow: "#EDA249",
-  purple: "#6f2ed6",
-  darkOrange: "#D14C32",
-  red: "#D83A34",
-  orange: "#CD5120",
-  limeGreen: "#1ec2a4",
-  blue: "#2d68f0",
+  mercury: "#419EBB",
+  venus: "#EDA249",
+  earth: "#6f2ed6",
+  mars: "#D14C32",
+  jupiter: "#D83A34",
+  saturn: "#CD5120",
+  uranus: "#1ec2a4",
+  neptune: "#2d68f0",
+};
+
+export const breakPoints = {
+  laptop: "933px",
+  tablet: "769px",
 };
