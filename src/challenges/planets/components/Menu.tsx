@@ -2,8 +2,11 @@ import styled, { ThemeProvider } from "styled-components";
 import useData from "../hooks/useData";
 import { usePlanetStore } from "../store/usePlanetStore";
 import { breakPoints, colors } from "../lib/design";
+import { useState } from "react";
 
 export default function Menu() {
+  const [showMenu, setShowMenu] = useState(false);
+
   const data = useData();
   const update = usePlanetStore((state) => state.update);
 
@@ -14,7 +17,7 @@ export default function Menu() {
   return (
     <MenuContainer>
       <Title>the planets</Title>
-      <ListContainer>
+      <ListContainer showMenu={showMenu}>
         {data.map((planet) => (
           <ThemeProvider theme={{ hover: colors[planet.name.toLowerCase() as keyof typeof colors] }}>
             <NavItem onClick={() => handlePlanet(planet.name)}>{planet.name}</NavItem>
@@ -24,6 +27,7 @@ export default function Menu() {
       <Hamburger
         src="/assets/planets/hamburger.svg"
         alt="hamburger icon"
+        onClick={() => setShowMenu((prev) => !prev)}
       />
     </MenuContainer>
   );
@@ -43,7 +47,7 @@ const MenuContainer = styled.nav`
   }
 `;
 
-const ListContainer = styled.ul`
+const ListContainer = styled.ul<{ showMenu: boolean }>`
   width: 100%;
   align-self: center;
   display: flex;
@@ -60,6 +64,7 @@ const ListContainer = styled.ul`
     top: 8.6rem;
     padding: 0 3rem;
     gap: 0;
+    display: ${(props) => (props.showMenu ? "block" : "none")};
   }
 `;
 
@@ -147,6 +152,7 @@ const Hamburger = styled.img`
   transform: translateY(-50%);
   margin-right: 3rem;
   display: none;
+  cursor: pointer;
 
   @media (width <=${breakPoints.tablet}) {
     display: block;
