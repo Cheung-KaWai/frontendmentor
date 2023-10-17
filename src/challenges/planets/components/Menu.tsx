@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import useData from "../hooks/useData";
-import { Planets, usePlanetStore } from "../store/usePlanetStore";
+import { usePlanetStore } from "../store/usePlanetStore";
 import { breakPoints, colors } from "../lib/design";
 import { useState } from "react";
 
@@ -36,7 +36,14 @@ export default function Menu() {
         <ListContainer showMenu={showMenu}>
           {data.map((planet) => (
             <ThemeProvider theme={{ hover: colors[planet.name.toLowerCase() as keyof typeof colors] }}>
-              <NavItem onClick={() => handlePlanet(planet.name)}>{planet.name}</NavItem>
+              <NavItem
+                onClick={() => {
+                  handlePlanet(planet.name);
+                  setShowMenu(false);
+                }}
+              >
+                {planet.name}
+              </NavItem>
             </ThemeProvider>
           ))}
         </ListContainer>
@@ -94,6 +101,9 @@ const ListContainer = styled.ul<{ showMenu: boolean }>`
     padding: 0 3rem;
     gap: 0;
     display: ${(props) => (props.showMenu ? "block" : "none")};
+    background-color: ${colors.navy};
+    height: 100vh;
+    z-index: 10;
   }
 `;
 
