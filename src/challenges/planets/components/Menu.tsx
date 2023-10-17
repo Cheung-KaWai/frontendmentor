@@ -1,35 +1,64 @@
 import styled, { ThemeProvider } from "styled-components";
 import useData from "../hooks/useData";
-import { usePlanetStore } from "../store/usePlanetStore";
+import { Planets, usePlanetStore } from "../store/usePlanetStore";
 import { breakPoints, colors } from "../lib/design";
 import { useState } from "react";
+
+const subMenuItems = [
+  {
+    name: "overview",
+    value: "overview",
+  },
+  {
+    name: "internal structure",
+    value: "structure",
+  },
+  {
+    name: "surface geology",
+    value: "geology",
+  },
+];
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(false);
 
   const data = useData();
-  const update = usePlanetStore((state) => state.update);
+  const { update, planet, step } = usePlanetStore((state) => state);
 
   const handlePlanet = (value: any) => {
     update("planet", value);
   };
 
   return (
-    <MenuContainer>
-      <Title>the planets</Title>
-      <ListContainer showMenu={showMenu}>
-        {data.map((planet) => (
-          <ThemeProvider theme={{ hover: colors[planet.name.toLowerCase() as keyof typeof colors] }}>
-            <NavItem onClick={() => handlePlanet(planet.name)}>{planet.name}</NavItem>
-          </ThemeProvider>
+    <>
+      <MenuContainer>
+        <Title>the planets</Title>
+        <ListContainer showMenu={showMenu}>
+          {data.map((planet) => (
+            <ThemeProvider theme={{ hover: colors[planet.name.toLowerCase() as keyof typeof colors] }}>
+              <NavItem onClick={() => handlePlanet(planet.name)}>{planet.name}</NavItem>
+            </ThemeProvider>
+          ))}
+        </ListContainer>
+        <Hamburger
+          src="/assets/planets/hamburger.svg"
+          alt="hamburger icon"
+          onClick={() => setShowMenu((prev) => !prev)}
+        />
+      </MenuContainer>
+      <MobileMenu>
+        {subMenuItems.map((item, index) => (
+          <MobileMenuItem
+            planet={planet}
+            key={index}
+            selected={item.value === step}
+            onClick={() => update("step", item.value)}
+          >
+            {item.value}
+          </MobileMenuItem>
         ))}
-      </ListContainer>
-      <Hamburger
-        src="/assets/planets/hamburger.svg"
-        alt="hamburger icon"
-        onClick={() => setShowMenu((prev) => !prev)}
-      />
-    </MenuContainer>
+      </MobileMenu>
+    </>
   );
 }
 
@@ -156,5 +185,29 @@ const Hamburger = styled.img`
 
   @media (width <=${breakPoints.tablet}) {
     display: block;
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: none;
+  grid-area: header;
+  justify-content: space-between;
+  padding: 0rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  @media (width<=${breakPoints.tablet}) {
+    display: flex;
+  }
+`;
+
+const MobileMenuItem = styled.button<{ planet: string; selected: boolean }>`
+  all: unset;
+  font-size: 0.9rem;
+  padding: 1.5rem 0.5rem;
+  border-bottom: 4px solid transparent;
+  color: ${(props) => (props.selected ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)")};
+  &:hover {
+    border-bottom: 4px solid ${(props) => colors[props.planet.toLowerCase() as keyof typeof colors]};
   }
 `;

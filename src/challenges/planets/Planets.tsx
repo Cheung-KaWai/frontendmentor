@@ -3,9 +3,8 @@ import Layout from "./components/Layout";
 import { usePlanetStore } from "./store/usePlanetStore";
 import useData from "./hooks/useData";
 import { H1, H4 } from "./components/Headings";
-import { useState } from "react";
 import { ActiveButton, Button } from "./components/Buttons";
-import { colors } from "./lib/design";
+import { breakPoints, colors } from "./lib/design";
 // import { colors } from "./lib/design";
 
 const subMenuItems = [
@@ -24,8 +23,8 @@ const subMenuItems = [
 ];
 
 export default function Website() {
-  const [step, setStep] = useState("overview");
-  const planet = usePlanetStore((state) => state.planet);
+  const { planet, step } = usePlanetStore((state) => state);
+  const update = usePlanetStore((state) => state.update);
   const data = useData();
   const currentPlanet = data.find((x) => x.name === planet);
   const body: any = currentPlanet?.[step as keyof typeof currentPlanet];
@@ -51,6 +50,8 @@ export default function Website() {
         <LinkText>
           Source: <Link href={body.source}>Wikipedia</Link>
         </LinkText>
+      </Body>
+      <SubmenuContainer>
         {subMenuItems.map((item, index) => {
           if (step === item.value) {
             return (
@@ -61,7 +62,7 @@ export default function Website() {
                 theme={{
                   background: colors[planet.toLocaleLowerCase() as keyof typeof colors].toString(),
                 }}
-                onClick={() => setStep(item.value)}
+                onClick={() => update("step", item.value)}
               />
             );
           } else {
@@ -70,12 +71,12 @@ export default function Website() {
                 number={index + 1}
                 text={item.name}
                 key={index}
-                onClick={() => setStep(item.value)}
+                onClick={() => update("step", item.value)}
               />
             );
           }
         })}
-      </Body>
+      </SubmenuContainer>
       <StatsContainer>
         <Stat>
           <H4 text="rotation time" />
@@ -116,6 +117,21 @@ const Planet = styled.img<PlanetProps>`
   display: ${(props) => props.show};
 `;
 
+const SubmenuContainer = styled.div`
+  grid-area: submenu;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (width<=${breakPoints.laptop}) {
+    justify-content: center;
+  }
+
+  @media (width<=${breakPoints.tablet}) {
+    display: none;
+  }
+`;
+
 const ImageContainer = styled.div`
   grid-area: planet;
   align-self: center;
@@ -144,12 +160,23 @@ const StatsContainer = styled.section`
   grid-area: stats;
   display: flex;
   gap: 3rem;
+
+  @media (width<=${breakPoints.tablet}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const Stat = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.5);
   width: 100%;
   padding: 2rem;
+
+  @media (width<=${breakPoints.tablet}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const StatValue = styled.p`
@@ -158,4 +185,13 @@ const StatValue = styled.p`
   font-weight: 500;
   line-height: 5.2rem;
   letter-spacing: -1.5px;
+
+  @media (width<=${breakPoints.laptop}) {
+    font-size: 2.4rem;
+    line-height: normal;
+  }
+
+  @media (width<=${breakPoints.tablet}) {
+    font-size: 2rem;
+  }
 `;

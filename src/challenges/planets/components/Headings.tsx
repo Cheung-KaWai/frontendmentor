@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoints } from "../lib/design";
 
 type HeadingText = {
   text: string | undefined;
@@ -23,6 +24,10 @@ const StyledHeading1 = styled.h1`
   font-weight: 500;
   line-height: 10.3rem;
   text-transform: uppercase;
+
+  @media (width<= ${breakPoints.laptop}) {
+    font-size: 4.8rem;
+  }
 `;
 
 const StyledHeading2 = styled.h2`
@@ -48,4 +53,8 @@ const StyledHeading4 = styled.h4`
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
+
+  @media (width <=${breakPoints.laptop}) {
+    font-size: 0.8rem;
+  }
 `;

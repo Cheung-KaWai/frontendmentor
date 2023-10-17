@@ -5,11 +5,13 @@ export type Planets = "Mercury" | "Venus" | "Earth" | "Mars" | "Jupiter" | "Satu
 
 type Store = {
   planet: string;
-  update: (name: keyof Store, value: Planets) => void;
+  step: string;
+  update: (name: keyof Store, value: string) => void;
 };
 
 export const usePlanetStore = create<Store>((set) => ({
   planet: "Mercury",
+  step: "overview",
   update: (name, value) => set({ [name]: value }),
 }));
 
