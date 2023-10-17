@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 const data = [
   {
-    name: "Planets",
+    name: "Planets info static website",
     link: "/planets",
     date: "October 2023",
+  },
+  {
+    name: "Kanban task management webapplication (coming soon)",
+    link: "/",
+    date: "TBA",
   },
 ];
 
