@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+
+const data = [
+  {
+    name: "Planets",
+    link: "/planets",
+    date: "October 2023",
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container>
+        <Heading>Practising my front-end skills</Heading>
+        <ListContainer>
+          {data.map((item, index) => (
+            <Link
+              href={item.link}
+              key={index}
+              number={index + 1}
+              date={item.date}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </ListContainer>
+      </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+const Container = styled.main`
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: max(1rem, 5vw);
+`;
+
+const Heading = styled.h1`
+  font-family: Lato;
+  font-weight: 400;
+  color: #868e96;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+`;
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Link = styled.a<{ number: number; date: string }>`
+  all: unset;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  color: #868e96;
+  font-weight: 300;
+  font-size: 1.6rem;
+  padding-left: 3rem;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &::before {
+    content: "0${(props) => props.number}";
+    display: block;
+    position: absolute;
+    left: 0rem;
+  }
+
+  &::after {
+    content: "${(props) => props.date}";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    font-weight: 100;
+    font-size: 1.4rem;
+  }
+`;
