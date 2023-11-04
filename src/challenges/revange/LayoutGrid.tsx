@@ -33,7 +33,7 @@ export const LayoutGrid = ({ children }: { children?: ReactNode }) => {
 const Container = styled.main`
   display: grid;
   grid-template-columns: 3.25fr 3.25fr 5.15fr 2.5fr;
-  grid-template-rows: 4rem auto;
+  grid-template-rows: 4rem 2fr 0.5fr 1fr;
   gap: 1rem;
   padding: 2rem;
   height: 100%;
@@ -41,10 +41,6 @@ const Container = styled.main`
   grid-template-areas:
     "logo log nav nav"
     "div1 div1 div2 div2"
-    "div1 div1 div2 div2"
-    "div1 div1 div2 div2"
-    "div1 div1 div2 div2"
     "div3 div4 div2 div2"
-    "div3 div4 div5 div6"
     "div3 div4 div5 div6";
 `;
