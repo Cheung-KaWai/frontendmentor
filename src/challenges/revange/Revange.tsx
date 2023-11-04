@@ -1,21 +1,16 @@
 import styled from "styled-components";
-import { MiddleCutoutShape } from "./MiddleCutoutShape";
-import { LayoutGrid } from "./LayoutGrid";
+import { MiddleCutoutShape } from "./components/MiddleCutoutShape";
+import { LayoutGrid } from "./components/LayoutGrid";
+import { Community } from "./components/Community";
 
 export const Revange = () => {
   return (
     <Container>
       <LayoutGrid>
-        <MiddleCutoutShape
-          area="div1"
-          rotate="180deg"
-          right="-1px"
-          top="10rem"
-        />
+        <Community />
         <MiddleCutoutShape
           area="div2"
           left="-1px"
-          top="10rem"
         />
       </LayoutGrid>
     </Container>
