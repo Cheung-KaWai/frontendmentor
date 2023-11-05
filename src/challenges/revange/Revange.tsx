@@ -34,6 +34,6 @@ const Container = styled.div`
   overflow: hidden;
 
   @media (width <= 768px) {
-    height: 150vh;
+    height: 225vh;
   }
 `;
