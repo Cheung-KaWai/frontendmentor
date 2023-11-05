@@ -11,6 +11,7 @@ type CutoutProps = {
   area: string;
   noBorder?: boolean;
   svgImage?: string;
+  padding?: string;
 };
 
 export const MiddleCutoutShape = ({
@@ -21,6 +22,7 @@ export const MiddleCutoutShape = ({
   left,
   right,
   noBorder,
+  padding,
 }: CutoutProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { update, offsetHeight } = useRevangeStore((state) => state);
@@ -29,7 +31,9 @@ export const MiddleCutoutShape = ({
     const handleTopOffsetCalculation = () => {
       if (ref.current) {
         const offsetHeight = ref.current?.offsetHeight / 2;
+        const offsetWidth = ref.current?.offsetWidth;
         update("offsetHeight", offsetHeight + "px");
+        update("offsetWidth", offsetWidth + "px");
       }
     };
 
@@ -53,6 +57,7 @@ export const MiddleCutoutShape = ({
       right={right}
       noBorder={noBorder}
       svgImage={noBorder ? "assets/revange/curveNoBorder.svg" : "assets/revange/curve.svg"}
+      padding={padding}
     >
       {children}
     </CurvContainer>
@@ -65,6 +70,7 @@ const CurvContainer = styled.div<CutoutProps>`
   position: relative;
   overflow: hidden;
   grid-area: ${(props) => props.area};
+  padding: ${(props) => props.padding};
 
   &::before {
     content: "";
@@ -72,12 +78,12 @@ const CurvContainer = styled.div<CutoutProps>`
     position: absolute;
     width: 100%;
     height: 100%;
-    border: ${(props) => (props.noBorder ? "1px solid transparent" : "1px solid black")};
+    border: ${(props) => (props.noBorder ? "2px solid transparent" : "2px solid #495057")};
     top: 0;
     left: 0;
     background-color: transparent;
     box-sizing: border-box;
-    border-radius: 3rem;
+    border-radius: 2rem;
   }
 
   &::after {

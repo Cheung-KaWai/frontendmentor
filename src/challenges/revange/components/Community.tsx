@@ -6,17 +6,18 @@ export const Community = () => {
     <MiddleCutoutShape
       area="div1"
       rotate="180deg"
-      right="-1px"
+      right="-2px"
       noBorder={true}
     >
-      <ContainreImage></ContainreImage>
+      <CircleImage src="/assets/revange/plates.jpg" />
     </MiddleCutoutShape>
   );
 };
 
-const ContainreImage = styled.div`
+const CircleImage = styled.img`
   width: 100%;
   height: 100%;
-  background-color: red;
-  border-radius: 3rem;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border-radius: 2rem;
 `;

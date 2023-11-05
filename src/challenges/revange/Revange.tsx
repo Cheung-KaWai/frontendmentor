@@ -1,18 +1,17 @@
 import styled from "styled-components";
-import { MiddleCutoutShape } from "./components/MiddleCutoutShape";
 import { LayoutGrid } from "./components/LayoutGrid";
 import { Community } from "./components/Community";
+import { CircleText } from "./components/CircleText";
+import { Hero } from "./components/Hero";
 
 export const Revange = () => {
   return (
     <Container>
       <LayoutGrid>
         <Community />
-        <MiddleCutoutShape
-          area="div2"
-          left="-1px"
-        />
+        <Hero />
       </LayoutGrid>
+      <CircleText />
     </Container>
   );
 };
