@@ -1,4 +1,3 @@
-import React from "react";
 import { MiddleCutoutShape } from "./MiddleCutoutShape";
 import styled from "styled-components";
 

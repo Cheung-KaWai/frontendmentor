@@ -7,10 +7,15 @@ const data = [
     date: "October 2023",
   },
   {
-    name: "Kanban task management webapplication (coming soon)",
-    link: "/",
-    date: "TBA",
+    name: "Revange",
+    link: "/revange",
+    date: "WIP November 2023",
   },
+  // {
+  //   name: "Kanban task management webapplication (coming soon)",
+  //   link: "/",
+  //   date: "TBA",
+  // },
 ];
 
 function App() {

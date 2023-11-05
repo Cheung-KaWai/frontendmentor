@@ -14,4 +14,13 @@ const Container = styled.div<GridAreaProps>`
   height: 100%;
   grid-area: ${(props) => props.area};
   background-color: ${(props) => props.color};
+  position: relative;
+
+  &::before {
+    content: url("/assets/revange/cornerCutout.svg");
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `;

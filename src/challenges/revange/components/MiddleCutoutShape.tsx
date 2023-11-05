@@ -68,6 +68,7 @@ const CurvContainer = styled.div<CutoutProps>`
   width: 100%;
   height: 100%;
   position: relative;
+  border-radius: 2rem;
   overflow: hidden;
   grid-area: ${(props) => props.area};
   padding: ${(props) => props.padding};
