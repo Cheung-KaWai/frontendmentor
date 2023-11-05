@@ -18,4 +18,13 @@ const Container = styled.main`
     "div1 div1 div2 div2"
     "div3 div4 div2 div2"
     "div3 div4 div5 div6";
+
+  @media (width <= 768px) {
+    grid-template-rows: 4rem 2fr 2fr 0.5fr 1fr;
+    grid-template-areas:
+      "logo log nav nav"
+      "div1 div1 div1 div1"
+      "div2 div2 div2 div2"
+      "div3 div4 div5 div6";
+  }
 `;

@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useRevangeStore } from "../store/useRevange";
+import { useMediaQuery } from "usehooks-ts";
 
 type CutoutProps = {
   children?: ReactNode;
@@ -12,6 +13,8 @@ type CutoutProps = {
   noBorder?: boolean;
   svgImage?: string;
   padding?: string;
+  bottom?: string;
+  translate?: string;
 };
 
 export const MiddleCutoutShape = ({
@@ -23,17 +26,26 @@ export const MiddleCutoutShape = ({
   right,
   noBorder,
   padding,
+  bottom,
+  translate = "0,-50%",
 }: CutoutProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { update, offsetHeight } = useRevangeStore((state) => state);
-
+  const tablet = useMediaQuery("(max-width: 768px)");
+  const src = tablet
+    ? noBorder
+      ? "curveHorizontalNoBorder.svg"
+      : "curveHorizontal.svg"
+    : noBorder
+    ? "curveNoBorder.svg"
+    : "curve.svg";
   useEffect(() => {
     const handleTopOffsetCalculation = () => {
       if (ref.current) {
         const offsetHeight = ref.current?.offsetHeight / 2;
         const offsetWidth = ref.current?.offsetWidth;
-        update("offsetHeight", offsetHeight + "px");
-        update("offsetWidth", offsetWidth + "px");
+        update("offsetHeight", offsetHeight);
+        update("offsetWidth", offsetWidth);
       }
     };
 
@@ -49,15 +61,17 @@ export const MiddleCutoutShape = ({
 
   return (
     <CurvContainer
-      top={area === "div2" ? offsetHeight : top}
+      top={area === "div2" && !tablet ? offsetHeight + "px" : top}
       rotate={rotate}
       area={area}
       ref={ref}
       left={left}
       right={right}
       noBorder={noBorder}
-      svgImage={noBorder ? "assets/revange/curveNoBorder.svg" : "assets/revange/curve.svg"}
+      svgImage={"assets/revange/" + src}
       padding={padding}
+      bottom={bottom}
+      translate={translate}
     >
       {children}
     </CurvContainer>
@@ -92,9 +106,10 @@ const CurvContainer = styled.div<CutoutProps>`
     display: block;
     position: absolute;
     top: ${(props) => props.top};
+    bottom: ${(props) => props.bottom};
     left: ${(props) => props.left};
     right: ${(props) => props.right};
-    transform: translate(0, -50%) rotate(${(props) => props.rotate});
+    transform: translate(${(props) => props.translate}) rotate(${(props) => props.rotate});
     line-height: 0;
   }
 `;

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { useRevangeStore } from "../store/useRevange";
 
 type CircleTextProps = {
-  offsetHeight: string;
-  offsetWidth: string;
+  offsetHeight: number;
+  offsetWidth: number;
 };
 
 type LetterProps = {
@@ -54,11 +54,16 @@ const Container = styled.div<CircleTextProps>`
   width: 11rem;
   height: 11rem;
   border-radius: 50%;
-  top: calc(${(props) => props.offsetHeight} + 70px);
-  left: calc(${(props) => props.offsetWidth} + 25px);
+  top: calc(${(props) => props.offsetHeight + "px"} + 70px);
+  left: calc(${(props) => props.offsetWidth + "px"} + 25px);
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 3;
+
+  @media (width<=768px) {
+    top: calc(${(props) => props.offsetHeight * 2 + "px"} + 74px);
+    left: calc(${(props) => props.offsetWidth / 2 + "px"} + 25px);
+  }
 `;
 
 const CircleContainer = styled.div`
