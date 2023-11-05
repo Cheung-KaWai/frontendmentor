@@ -1,33 +1,8 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { GridAreaVisualiser } from "./GridAreaVisualiser";
 
 export const LayoutGrid = ({ children }: { children?: ReactNode }) => {
-  return (
-    <Container>
-      <GridAreaVisualiser
-        color="red"
-        area="logo"
-      />
-      {children}
-      <GridAreaVisualiser
-        color="green"
-        area="div3"
-      />
-      <GridAreaVisualiser
-        color="pink"
-        area="div4"
-      />
-      <GridAreaVisualiser
-        color="brown"
-        area="div5"
-      />
-      <GridAreaVisualiser
-        color="black"
-        area="div6"
-      />
-    </Container>
-  );
+  return <Container>{children}</Container>;
 };
 
 const Container = styled.main`

@@ -1,15 +1,15 @@
 import { CornerCutoutShape } from "./CornerCutoutShape";
 import { Image } from "./Image";
 
-export const TopCase = () => {
+export const Product = () => {
   return (
     <CornerCutoutShape
-      area="div3"
+      area="div4"
       type="square"
       top="0"
       right="0"
     >
-      <Image src="/assets/revange/circle.jpg" />
+      <Image src="/assets/revange/plates2.jpg" />
     </CornerCutoutShape>
   );
 };

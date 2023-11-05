@@ -36,10 +36,18 @@ export const CircleText = () => {
             </Letter>
           )
         )}
+        {/* <PlayButton /> */}
       </CircleContainer>
     </Container>
   );
 };
+
+// const PlayButton = styled.div`
+//   width: 5rem;
+//   aspect-ratio: 1;
+//   background-color: #495057;
+//   border-radius: 50%;
+// `;
 
 const Container = styled.div<CircleTextProps>`
   position: absolute;
@@ -60,6 +68,7 @@ const CircleContainer = styled.div`
   justify-content: center;
   align-items: center;
   transform: rotate(15deg);
+  position: relative;
 `;
 
 const Letter = styled.span<LetterProps>`

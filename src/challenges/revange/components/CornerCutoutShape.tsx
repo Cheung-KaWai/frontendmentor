@@ -11,6 +11,7 @@ type CornerCutoutProps = {
   rotation?: string;
   svgImage?: string;
   children?: ReactNode;
+  bgColor?: string;
 };
 
 export const CornerCutoutShape = ({ children, ...props }: CornerCutoutProps) => {
@@ -28,6 +29,8 @@ const Container = styled.div<CornerCutoutProps>`
   height: 100%;
   grid-area: ${(props) => props.area};
   position: relative;
+  background-color: ${(props) => props.bgColor};
+  border-radius: 2rem;
 
   &::before {
     content: url(${(props) => props.svgImage});
@@ -39,5 +42,6 @@ const Container = styled.div<CornerCutoutProps>`
     left: ${(props) => props.left};
     bottom: ${(props) => props.bottom};
     transform: rotate(${(props) => props.rotation});
+    z-index: 1;
   }
 `;

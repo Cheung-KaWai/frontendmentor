@@ -3,6 +3,10 @@ import { LayoutGrid } from "./components/LayoutGrid";
 import { Community } from "./components/Community";
 import { CircleText } from "./components/CircleText";
 import { Hero } from "./components/Hero";
+import { TopCase } from "./components/TopCase";
+import { Product } from "./components/Product";
+import { Join } from "./components/Join";
+import { Categories } from "./components/Categories";
 
 export const Revange = () => {
   return (
@@ -10,6 +14,10 @@ export const Revange = () => {
       <LayoutGrid>
         <Community />
         <Hero />
+        <TopCase />
+        <Product />
+        <Categories />
+        <Join />
       </LayoutGrid>
       <CircleText />
     </Container>
