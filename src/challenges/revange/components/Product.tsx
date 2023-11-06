@@ -1,3 +1,4 @@
+import { CornerButton } from "./CornerButton";
 import { CornerCutoutShape } from "./CornerCutoutShape";
 import { Image } from "./Image";
 
@@ -10,6 +11,7 @@ export const Product = () => {
       right="0"
     >
       <Image src="/assets/revange/plates2.jpg" />
+      <CornerButton black={false} />
     </CornerCutoutShape>
   );
 };

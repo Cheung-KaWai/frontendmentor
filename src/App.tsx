@@ -53,7 +53,7 @@ const Container = styled.main`
 const Heading = styled.h1`
   font-family: Lato;
   font-weight: 400;
-  color: #868e96;
+  color: #212529;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 3rem;

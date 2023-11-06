@@ -1,3 +1,4 @@
+import { CornerButton } from "./CornerButton";
 import { CornerCutoutShape } from "./CornerCutoutShape";
 import { Image } from "./Image";
 
@@ -10,6 +11,7 @@ export const TopCase = () => {
       right="0"
     >
       <Image src="/assets/revange/circle.jpg" />
+      <CornerButton black={true} />
     </CornerCutoutShape>
   );
 };
