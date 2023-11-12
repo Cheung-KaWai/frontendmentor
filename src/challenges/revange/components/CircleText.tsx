@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useRevangeStore } from "../store/useRevange";
+import { colors } from "../../planets/lib/design";
 
 type CircleTextProps = {
   offsetHeight: number;
@@ -36,18 +37,29 @@ export const CircleText = () => {
             </Letter>
           )
         )}
-        {/* <PlayButton /> */}
+        <PlayButton></PlayButton>
       </CircleContainer>
     </Container>
   );
 };
 
-// const PlayButton = styled.div`
-//   width: 5rem;
-//   aspect-ratio: 1;
-//   background-color: #495057;
-//   border-radius: 50%;
+// const Triangle = styled.img`
+//   width: 50%;
+//   object-fit: cover;
+//   position: relative;
+//   top: -3px;
+//   transform: rotate(45deg);
 // `;
+
+const PlayButton = styled.div`
+  width: 5rem;
+  aspect-ratio: 1;
+  background-color: ${colors.specialblack};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Container = styled.div<CircleTextProps>`
   position: absolute;

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { CornerCutoutShape } from "./CornerCutoutShape";
 import { PillButton } from "./PillButton";
 
@@ -10,6 +11,15 @@ export const Categories = () => {
       bgColor="#e9ecef"
     >
       <PillButton />
+      <BackgroundImage src="/assets/revange/orangeCircle.jpg" />
     </CornerCutoutShape>
   );
 };
+
+const BackgroundImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+  filter: grayscale(100%);
+`;

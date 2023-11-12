@@ -8,7 +8,7 @@ export const LayoutGrid = ({ children }: { children?: ReactNode }) => {
 const Container = styled.main`
   display: grid;
   grid-template-columns: 3.25fr 3.25fr 5.15fr 2.5fr;
-  grid-template-rows: 4rem 2fr 0.5fr 1fr;
+  grid-template-rows: 4rem minmax(0, 2fr) minmax(0, 0.5fr) minmax(0, 1fr);
   gap: 1rem;
   padding: 2rem;
   height: 100%;
