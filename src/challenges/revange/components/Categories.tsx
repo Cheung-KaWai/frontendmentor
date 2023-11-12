@@ -1,4 +1,5 @@
 import { CornerCutoutShape } from "./CornerCutoutShape";
+import { PillButton } from "./PillButton";
 
 export const Categories = () => {
   return (
@@ -7,6 +8,8 @@ export const Categories = () => {
       top="0"
       left="0"
       bgColor="#e9ecef"
-    ></CornerCutoutShape>
+    >
+      <PillButton />
+    </CornerCutoutShape>
   );
 };

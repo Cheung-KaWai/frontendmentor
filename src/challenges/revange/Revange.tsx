@@ -7,11 +7,15 @@ import { TopCase } from "./components/TopCase";
 import { Product } from "./components/Product";
 import { Join } from "./components/Join";
 import { Categories } from "./components/Categories";
+import { HomeButton } from "./components/HomeButton";
+import { Menu } from "./components/Menu";
 
 export const Revange = () => {
   return (
     <Container>
       <LayoutGrid>
+        <HomeButton />
+        <Menu />
         <Community />
         <Hero />
         <TopCase />

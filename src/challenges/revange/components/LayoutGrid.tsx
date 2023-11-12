@@ -21,7 +21,7 @@ const Container = styled.main`
 
   @media (width <= 768px) {
     grid-template-rows: 4rem 1.5fr 1.5fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-areas:
       "logo log nav nav"
       "div1 div1 div1 div1"

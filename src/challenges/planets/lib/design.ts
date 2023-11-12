@@ -11,6 +11,7 @@ export const colors = {
   saturn: "#CD5120",
   uranus: "#1ec2a4",
   neptune: "#2d68f0",
+  specialblack: "#101010",
 };
 
 export const breakPoints = {
