@@ -4,12 +4,12 @@ import { colors } from "../../planets/lib/design";
 export const Menu = () => {
   return (
     <MenuContainer>
-      <Hamburger />
+      <Hamburger className="menu" />
       <MenuItemsContainer>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Categories</MenuItem>
-        <MenuItem>App</MenuItem>
-        <MenuItem>Community</MenuItem>
+        <MenuItem className="menu">Home</MenuItem>
+        <MenuItem className="menu">Categories</MenuItem>
+        <MenuItem className="menu">App</MenuItem>
+        <MenuItem className="menu">Community</MenuItem>
       </MenuItemsContainer>
     </MenuContainer>
   );

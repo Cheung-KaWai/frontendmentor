@@ -9,6 +9,7 @@ export const TopCase = () => {
       type="square"
       top="0"
       right="0"
+      className="topCase"
     >
       <Image src="/assets/revange/circle.jpg" />
       <CornerButton black={true} />

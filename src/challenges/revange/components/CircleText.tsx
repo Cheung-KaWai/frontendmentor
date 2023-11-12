@@ -37,7 +37,7 @@ export const CircleText = () => {
             </Letter>
           )
         )}
-        <PlayButton></PlayButton>
+        <PlayButton className="circleButton"></PlayButton>
       </CircleContainer>
     </Container>
   );

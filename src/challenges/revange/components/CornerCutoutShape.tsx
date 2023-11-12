@@ -12,6 +12,7 @@ type CornerCutoutProps = {
   svgImage?: string;
   children?: ReactNode;
   bgColor?: string;
+  className?: string;
 };
 
 export const CornerCutoutShape = ({ children, ...props }: CornerCutoutProps) => {

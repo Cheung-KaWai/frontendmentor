@@ -3,7 +3,7 @@ import { colors } from "../../planets/lib/design";
 
 export const Join = () => {
   return (
-    <Container>
+    <Container className="join">
       <Title>
         <StyledSpan>45K+</StyledSpan> Designers create visual magic
       </Title>

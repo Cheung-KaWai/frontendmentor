@@ -13,13 +13,14 @@ export const Hero = () => {
       translate={tablet ? "-50%,0" : "0,-50%"}
       rotate={tablet ? "180deg" : "0"}
       top={tablet ? "-3px" : "50%"}
+      className="hero"
     >
-      <Title>
+      <Title className="title">
         unleash your <StyledSpan> design skill feel </StyledSpan>
         <span> </span>render <span> </span>
         <StyledImage src="/assets/revange/herocircles.svg" /> creativity with revange
       </Title>
-      <SubTitle>
+      <SubTitle className="subTitle">
         Community of visual storytellers,collaborate and showcase your stunning render artistry on the ultimate platform
         for render enthousiasts, revange
       </SubTitle>

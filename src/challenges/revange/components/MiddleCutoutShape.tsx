@@ -15,6 +15,7 @@ type CutoutProps = {
   padding?: string;
   bottom?: string;
   translate?: string;
+  className?: string;
 };
 
 export const MiddleCutoutShape = ({
@@ -28,6 +29,7 @@ export const MiddleCutoutShape = ({
   padding,
   bottom,
   translate = "0,-50%",
+  className,
 }: CutoutProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { update, offsetHeight } = useRevangeStore((state) => state);
@@ -72,6 +74,7 @@ export const MiddleCutoutShape = ({
       padding={padding}
       bottom={bottom}
       translate={translate}
+      className={className}
     >
       {children}
     </CurvContainer>

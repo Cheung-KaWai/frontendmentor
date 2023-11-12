@@ -4,7 +4,10 @@ import { colors } from "../../planets/lib/design";
 
 export const CornerButton = ({ black }: { black: boolean }) => {
   return (
-    <Container black={black}>
+    <Container
+      black={black}
+      className="cornerButton"
+    >
       <BsArrowUpRight
         size="2.4rem"
         color={black ? "white" : colors.specialblack}

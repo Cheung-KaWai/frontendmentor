@@ -12,6 +12,7 @@ export const Community = () => {
       translate={tablet ? "50%,-100%" : "0,-50%"}
       top={tablet ? "calc(100% + 2px)" : "50%"}
       noBorder={true}
+      className="community"
     >
       <Image src="/assets/revange/plates.jpg" />
     </MiddleCutoutShape>

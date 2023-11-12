@@ -4,7 +4,7 @@ import { colors } from "../../planets/lib/design";
 
 export const PillButton = () => {
   return (
-    <Container>
+    <Container className="categoryButton">
       <p>Categories</p>
       <BsArrowUpRight />
     </Container>

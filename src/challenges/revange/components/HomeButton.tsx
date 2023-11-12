@@ -3,7 +3,7 @@ import { colors } from "../../planets/lib/design";
 
 export const HomeButton = () => {
   return (
-    <Container>
+    <Container className="logo">
       <StyledImage src="/assets/revange/logo.svg" />
       revange
     </Container>

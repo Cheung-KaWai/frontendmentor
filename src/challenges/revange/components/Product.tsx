@@ -9,6 +9,7 @@ export const Product = () => {
       type="square"
       top="0"
       right="0"
+      className="product"
     >
       <Image src="/assets/revange/plates2.jpg" />
       <CornerButton black={false} />

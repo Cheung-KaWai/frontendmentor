@@ -9,6 +9,7 @@ import { Join } from "./components/Join";
 import { Categories } from "./components/Categories";
 import { HomeButton } from "./components/HomeButton";
 import { Menu } from "./components/Menu";
+import { Animation } from "./components/Animation";
 
 export const Revange = () => {
   return (
@@ -22,6 +23,7 @@ export const Revange = () => {
         <Product />
         <Categories />
         <Join />
+        <Animation />
       </LayoutGrid>
       <CircleText />
     </Container>

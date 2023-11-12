@@ -9,6 +9,7 @@ export const Categories = () => {
       top="0"
       left="0"
       bgColor="#e9ecef"
+      className="category"
     >
       <PillButton />
       <BackgroundImage src="/assets/revange/orangeCircle.jpg" />
